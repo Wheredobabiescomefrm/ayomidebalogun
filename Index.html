@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayomide Balogun - Mechanical Engineering & Automation</title>
+    <style>
+        :root {
+            --primary: #CC5500;     /* Deeper, richer orange to match shirt */
+            --accent: #FFD700;      /* Gold for accent */
+            --bg-light: #FFF3E0;    /* Light Orange Tint */
+            --text-dark: #2C1A00;   /* Deep Brown for contrast */
+            --card-bg: #E66A00;     /* Slightly darker orange for cards */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #FFD2A8 100%); /* Adjusted gradient */
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Overlapping Card Layout */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(204, 85, 0, 0.3); /* Shadow color based on new primary */
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(204, 85, 0, 0.4); /* Shadow color based on new primary */
+        }
+
+        .card h2, .card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* Profile Card - Larger & Centered (MODIFIED) */
+        .profile-card {
+            grid-column: span 2;
+            text-align: center;
+            background: white;
+            color: var(--text-dark);
+            z-index: 10;
+            /* Removed: transform: scale(1.05); */
+            box-shadow: 0 20px 40px rgba(230, 106, 0, 0.25);
+            padding: 40px 20px; /* Increased vertical padding for balance */
+        }
+
+        /* .profile-card img style block was removed in previous step */
+
+        .profile-card h1 {
+            font-size: 2.8rem; /* Made larger */
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .profile-card .title {
+            color: var(--accent);
+            font-weight: 700; /* Ensured bold title */
+            font-size: 1.4rem; /* Made larger */
+            margin-bottom: 25px; /* Increased margin for separation */
+        }
+
+        .profile-card .contact-info {
+            margin-top: 20px; /* Increased margin */
+            font-size: 1.1rem; /* Made larger */
+        }
+
+        /* Floating Accent Blocks */
+        .accent-block {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 12px;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .block-1 {
+            width: 200px;
+            height: 180px;
+            top: 60px;
+            left: -50px;
+            transform: rotate(12deg);
+        }
+
+        .block-2 {
+            width: 150px;
+            height: 150px;
+            top: 320px;
+            right: -30px;
+            transform: rotate(-15deg);
+        }
+
+        .block-3 {
+            width: 120px;
+            height: 120px;
+            bottom: 80px;
+            left: 10%;
+            transform: rotate(20deg);
+        }
+
+        /* Section Cards */
+        .about-card, .education-card, .experience-card, .skills-card,
+        .projects-card, .contact-card {
+            min-height: 220px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li:before {
+            content: "✦";
+            color: var(--accent);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* No project images, so this style is effectively dormant */
+        .projects-card img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 2px solid var(--accent);
+        }
+
+        /* Contact & Follow */
+        .contact-card a, .contact-card button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 10px 20px;
+            margin: 8px 4px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-card a:hover, .contact-card button:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-card {
+                grid-column: span 1;
+                transform: none;
+            }
+            .accent-block { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="accent-block block-1"></div>
+        <div class="accent-block block-2"></div>
+        <div class="accent-block block-3"></div>
+
+        <div class="portfolio">
+
+            <div class="card profile-card">
+                <h1>Muhammad Awwal Afolabi Balogun Ayomide</h1>
+                <p class="title">Mechanical Engineer | Developer</p>
+                <div class="contact-info">
+                    <p>📞 08102661891</p>
+                    <p>✉️ ayomideb472@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="card about-card">
+                <h2>Profile Summary</h2>
+                <p>Mechanical Engineering student skilled in **Python development**, **automation**, and **technical design**. Experienced in building functional software tools such as OTC trading bots and data automation scripts, and developing layout and structural plans using AutoCAD.</p>
+                <p>Currently responsible for maintaining an active OTC trading bot used in Jettpro marketplace operations.</p>
+            </div>
+
+            <div class="card education-card">
+                <h3>Education</h3>
+                <p><strong>B.Eng., Mechanical Engineering</strong><br>Ahmadu Bello University (ABU Zaria) • 2024–2028 Expected</p>
+                <p><strong>Certifications:</strong> Certified by udemy for completing "the 100 days of code: The complete python pro bootcamp, Become Experts in Python, Python Data Analysis" Programms:</p>
+            </div>
+
+            <div class="card experience-card">
+                <h3>Work Experience</h3>
+                <p><strong>OTC Bot Developer & Maintainer</strong><br>JettPro Marketplace • Zaria, Remote/Hybrid • 2024 – Present</p>
+                <ul>
+                    <li>Manage and maintain an automated OTC trading bot used in Discord transactions.</li>
+                    <li>Implemented role verification, logging, and workflow automation.</li>
+                </ul>
+                <p><strong>Engineering Intern / Python Developer</strong><br>Memmcol • Lagos • 2023</p>
+                <ul>
+                    <li>Developed automation scripts and assisted in device operation support and workflow optimization.</li>
+                </ul>
+                <p><strong>Industrial Training</strong><br>Epail Nigeria Limited • Lagos • 2022</p>
+                <ul>
+                    <li>Supported maintenance of compressors, injection molding machines, and polyurea systems.</li>
+                </ul>
+            </div>
+
+            <div class="card skills-card">
+                <h3>Core Skills</h3>
+                <ul>
+                    <li>**Programming:** Python, JavaScript, HTML, CSS</li>
+                    <li>**Automation & Systems:** Discord Bot Automation, Data Processing Scripts, Event-Driven Execution</li>
+                    <li>**Engineering & Design:** AutoCAD (2D & 3D), Layout Planning & Workflow Optimization</li>
+                    <li>**Tools:** VS Code, Figma (Interface Structuring), Microsoft Office Suite</li>
+                    <li>**Soft Skills:** Critical Thinking, Team Collaboration, Creative Problem Solving, Adaptability</li>
+                </ul>
+            </div>
+
+            <div class="card projects-card">
+                <h3>Key Projects</h3>
+                <p><strong>OTC Trading Bot (Python)</strong> – Automated peer-to-peer trading with verification & logging.</p>
+                <p><strong>Workshop Layout Optimization (AutoCAD)</strong> – 2D/3D layout designed for efficient workflow.</p>
+                <p><strong>Data Automation Script (Python + Pandas)</strong> – Automates spreadsheet cleanup and formatting.</p>
+            </div>
+
+            <div class="card contact-card">
+                <h3>Connect With Me</h3>
+                <a href="mailto:ayomideb472@gmail.com">📧 Email Me</a>
+                <a href="https://linkedin.com/in/ayomide-balogun-959913282" target="_blank">💼 LinkedIn Profile</a>
+                <a href="https://github.com/Wheredobabiescomefrm?tab=repositories" target="_blank">🖥️ GitHub Repositories</a>
+                <a href="https://www.hackerrank.com/" target="_blank">💻 HackerRank</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Simple interactivity
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.zIndex = '15';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.zIndex = '1';
+            });
+        });
+    </script>
+
+</body>
+</html>
