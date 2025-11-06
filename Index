@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Exhibition Designer</title>
+    <style>
+        :root {
+            --primary: #FF6B00;     /* Vibrant Orange */
+            --accent: #FFD700;      /* Gold */
+            --bg-light: #FFF3E0;    /* Light Orange Tint */
+            --text-dark: #2C1A00;   /* Deep Brown for contrast */
+            --card-bg: #FF8C00;     /* Darker Orange for cards */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Overlapping Card Layout */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 107, 0, 0.4);
+        }
+
+        .card h2, .card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* Profile Card - Larger & Centered */
+        .profile-card {
+            grid-column: span 2;
+            text-align: center;
+            background: white;
+            color: var(--text-dark);
+            z-index: 10;
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 152, 0, 0.25);
+        }
+
+        .profile-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 6px solid var(--accent);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .profile-card h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .profile-card .title {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .profile-card .contact-info {
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        .profile-card .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Floating Accent Blocks */
+        .accent-block {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 12px;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .block-1 {
+            width: 200px;
+            height: 180px;
+            top: 60px;
+            left: -50px;
+            transform: rotate(12deg);
+        }
+
+        .block-2 {
+            width: 150px;
+            height: 150px;
+            top: 320px;
+            right: -30px;
+            transform: rotate(-15deg);
+        }
+
+        .block-3 {
+            width: 120px;
+            height: 120px;
+            bottom: 80px;
+            left: 10%;
+            transform: rotate(20deg);
+        }
+
+        /* Section Cards */
+        .about-card, .education-card, .experience-card, .skills-card,
+        .projects-card, .testimonials-card, .contact-card {
+            min-height: 220px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+Wheredobabiescomefrm 🤔, [11/6/2025 4:49 PM]
+ul li:before {
+            content: "✦";
+            color: var(--accent);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .projects-card img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 2px solid var(--accent);
+        }
+
+        /* Contact & Follow */
+        .contact-card a, .contact-card button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 10px 20px;
+            margin: 8px 4px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-card a:hover, .contact-card button:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-card {
+                grid-column: span 1;
+                transform: none;
+            }
+            .accent-block { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Floating Accent Blocks -->
+        <div class="accent-block block-1"></div>
+        <div class="accent-block block-2"></div>
+        <div class="accent-block block-3"></div>
+
+        <div class="portfolio">
+
+            <!-- Profile Card -->
+            <div class="card profile-card">
+                <img src="https://via.placeholder.com/150?text=Your+Photo" alt="Your Photo">
+                <h1>Your Full Name</h1>
+                <p class="title">Exhibition Designer</p>
+                <div class="contact-info">
+                    <p>📞 +234 555 7777</p>
+                    <p>✉️ yourname@email.com</p>
+                    <p>🌐 www.yourportfolio.com</p>
+                </div>
+            </div>
+
+            <!-- About Me -->
+            <div class="card about-card">
+                <h2>About Me</h2>
+                <p>Creative exhibition designer with 5+ years turning spaces into immersive brand experiences. Passionate about blending storytelling, technology, and aesthetics to captivate audiences.</p>
+                <p>Expert in concept development, 3D visualization, and on-site execution.</p>
+            </div>
+
+            <!-- Education -->
+            <div class="card education-card">
+                <h3>Education</h3>
+                <p><strong>B.Sc. Industrial Design</strong><br>University of Lagos • 2018</p>
+                <p><strong>AutoCAD & 3ds Max Certification</strong><br>Digital Design Institute • 2019</p>
+            </div>
+
+            <!-- Experience -->
+            <div class="card experience-card">
+                <h3>Experience</h3>
+                <p><strong>Senior Exhibition Designer</strong><br>BrandSpace Ltd • 2021–Present</p>
+                <p><strong>Junior Designer</strong><br>ExpoCraft Nigeria • 2018–2021</p>
+            </div>
+
+            <!-- Skills -->
+            <div class="card skills-card">
+                <h3>Skills</h3>
+                <ul>
+                    <li>3D Modeling & Rendering</li>
+                    <li>AutoCAD, SketchUp, Rhino</li>
+                    <li>Project Management</li>
+                    <li>Client Presentation</li>
+                    <li>Lighting & Material Design</li>
+                </ul>
+            </div>
+
+            <!-- Projects -->
+            <div class="card projects-card">
+                <h3>Projects</h3>
+                <img src="https://via.placeholder.com/300x80?text=Tech+Expo+2024" alt="Project 1">
+                <p><strong>Tech Expo 2024</strong> – Interactive VR booth</p>
+                <img src="https://via.placeholder.com/300x80?text=Luxury+Brand+Launch" alt="Project 2">
+                <p><strong>Luxury Brand Launch</strong> – 500 sqm immersive space</p>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="card testimonials-card">
+
+Wheredobabiescomefrm 🤔, [11/6/2025 4:49 PM]
+<h3>Testimonials</h3>
+                <p><em>"Transformed our vision into a jaw-dropping reality!"</em><br>— CEO, TechNova</p>
+                <p><em>"Best designer we've worked with in 10 years."</em><br>— Marketing Director, LuxeGroup</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">EMAIL FOR FULL TESTIMONIALS</p>
+            </div>
+
+            <!-- Contact Me -->
+            <div class="card contact-card">
+                <h3>Contact Me</h3>
+                <a href="mailto:yourname@email.com">📧 Email Me</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+                <button onclick="alert('Follow feature coming soon!')">FOLLOW ME</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Simple interactivity
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.zIndex = '15';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.zIndex = '1';
+            });
+        });
+    </script>
+
+</body>
+</html>
